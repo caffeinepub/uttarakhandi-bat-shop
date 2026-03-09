@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "E-commerce app selling Uttarakhandi willow bats at 600 rupees",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Hero banner image showing traditional Uttarakhandi willow bat craftsmanship with natural wood texture (hero-banner.dim_1200x400.png)\n- Product photo of classic Uttarakhandi willow cricket bat on white background (bat-classic.dim_600x600.png)\n- Product photo of premium Uttarakhandi willow cricket bat with leather grip (bat-premium.dim_600x600.png)\n- Product photo of professional grade Uttarakhandi willow cricket bat (bat-professional.dim_600x600.png)\n- Small icon of cricket bat for cart and navigation (bat-icon.dim_64x64.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-product-catalog-displaying-uttarakhandi-willow-cricket-bats-with-images-descriptions-and-specifications",
+      "title": "Create a product catalog displaying Uttarakhandi willow cricket bats with images, descriptions, and specifications",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-fixed-price-of-600-for-all-bats-in-the-catalog",
+      "title": "Display fixed price of ₹600 for all bats in the catalog",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-shopping-cart-functionality-allowing-users-to-add-bats-and-view-cart-totals",
+      "title": "Implement shopping cart functionality allowing users to add bats and view cart totals",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-checkout-flow-capturing-customer-name-delivery-address-and-phone-number",
+      "title": "Create checkout flow capturing customer name, delivery address, and phone number",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-creative-traditional-indian-marketplace-visual-theme-with-warm-earthy-colors-and-elegant-typography-that-reflects-the-craftsmanship-of-uttarakhandi-products",
+      "title": "Apply a creative, traditional Indian marketplace visual theme with warm, earthy colors and elegant typography that reflects the craftsmanship of Uttarakhandi products",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-product-images-for-uttarakhandi-willow-bats-as-static-assets-in-frontend-public-assets-generated",
+      "title": "Render generated product images for Uttarakhandi willow bats as static assets in frontend/public/assets/generated",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Display product catalog of Uttarakhandi willow bats",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Show fixed price of 600 rupees for all bats",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement purchase/checkout functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Store bat product data (name, description, image reference, price) in backend with query and list methods",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Store completed orders in backend with customer details, items purchased, quantities, and total amount",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Uttarakhandi Bat Shop",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

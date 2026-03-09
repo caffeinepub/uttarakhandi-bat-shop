@@ -1,0 +1,15 @@
+{
+  "frontend/src/index.css": "Global styles with warm, earthy OKLCH color palette inspired by traditional Indian marketplaces, featuring terracotta, ochre, and gold tones with serif typography for an authentic craftsmanship aesthetic.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom serif fonts (Georgia, Palatino), warm color tokens, and custom shadows to support the traditional Indian marketplace theme.",
+  "frontend/src/utils/formatPrice.ts": "Utility function to format prices in Indian Rupees with ₹ symbol, handling both bigint and number types.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including fetching bats, viewing cart, adding items to cart, and checkout functionality with automatic cache invalidation.",
+  "frontend/src/components/Layout.tsx": "Main layout component with sticky header featuring logo and cart icon with badge, navigation, and footer with contact info, social links, and Caffeine attribution.",
+  "frontend/src/components/BatCard.tsx": "Product card component displaying bat image, name, description, price badge, and add-to-cart button with loading and success states.",
+  "frontend/src/components/ProductCatalog.tsx": "Product catalog grid component that fetches and displays all available bats with loading and error states.",
+  "frontend/src/pages/CatalogPage.tsx": "Main catalog page with hero banner image and product grid, serving as the landing page for the shop.",
+  "frontend/src/pages/CartPage.tsx": "Shopping cart page displaying cart items with images, quantities, prices, and order summary with checkout button.",
+  "frontend/src/components/CheckoutForm.tsx": "Checkout form component with validation for customer name, delivery address, and phone number fields.",
+  "frontend/src/pages/CheckoutPage.tsx": "Checkout page combining the checkout form with order summary sidebar showing cart items and total.",
+  "frontend/src/pages/OrderSuccessPage.tsx": "Order confirmation page displayed after successful checkout with success message and continue shopping button.",
+  "frontend/src/App.tsx": "Main app component with TanStack Router setup defining routes for catalog, cart, checkout, and order success pages, with Layout component wrapping all routes using the Outlet component imported from @tanstack/react-router."
+}

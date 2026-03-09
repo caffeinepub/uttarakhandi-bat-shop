@@ -1,0 +1,190 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Uttarakhandi Bat Shop - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a product catalog displaying Uttarakhandi willow cricket bats with images, descriptions, and specifications",
+      "acceptanceCriteria": [
+        "Product catalog displays multiple bat listings",
+        "Each bat shows an image, name, and description",
+        "Catalog is responsive and works on mobile and desktop"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductCatalog.tsx",
+          "operation": "create",
+          "description": "Create a ProductCatalog component that fetches bats from backend using getBats() method and displays them in a responsive grid layout. Each bat card shows the generated image from frontend/public/assets/generated, name, description, and specifications. Include loading and error states."
+        },
+        {
+          "path": "frontend/src/components/BatCard.tsx",
+          "operation": "create",
+          "description": "Create a BatCard component that displays individual bat information including image, name, description, price, and an 'Add to Cart' button. Make it reusable and responsive."
+        },
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "create",
+          "description": "Create the main catalog page that renders the ProductCatalog component. Include page header with hero banner image from frontend/public/assets/generated/hero-banner.dim_1200x400.png and page title."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the CatalogPage into the app router as the main landing page route. Ensure the page is accessible from navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Display fixed price of ₹600 for all bats in the catalog",
+      "acceptanceCriteria": [
+        "Price of ₹600 is clearly visible for each bat",
+        "Currency symbol (₹) is displayed correctly",
+        "Price formatting is consistent across all product listings"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/formatPrice.ts",
+          "operation": "create",
+          "description": "Create a utility function to format prices in Indian Rupees with ₹ symbol. Handle bigint conversion from backend and format as ₹600 consistently."
+        },
+        {
+          "path": "frontend/src/components/BatCard.tsx",
+          "operation": "modify",
+          "description": "Update BatCard to display the formatted price using the formatPrice utility. Ensure ₹600 is prominently displayed with proper styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement shopping cart functionality allowing users to add bats and view cart totals",
+      "acceptanceCriteria": [
+        "Users can add bats to cart from product catalog",
+        "Cart displays selected items with quantities",
+        "Cart shows total price calculation",
+        "Users can update quantities or remove items from cart"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCart.ts",
+          "operation": "create",
+          "description": "Create a custom hook to manage cart state and operations. Provide methods to add items using backend addToCart() method, fetch cart contents using viewCart() method, update quantities, and calculate totals. Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/components/Cart.tsx",
+          "operation": "create",
+          "description": "Create a Cart component that displays cart items with quantities, prices, and total. Include buttons to update quantities, remove items, and proceed to checkout. Fetch cart data using the useCart hook."
+        },
+        {
+          "path": "frontend/src/components/CartIcon.tsx",
+          "operation": "create",
+          "description": "Create a CartIcon component for navigation that displays the bat-icon.dim_64x64.png image from frontend/public/assets/generated and shows the current cart item count badge. Make it clickable to open the cart view."
+        },
+        {
+          "path": "frontend/src/components/BatCard.tsx",
+          "operation": "modify",
+          "description": "Wire the 'Add to Cart' button to call the useCart hook's addToCart method with the bat ID and quantity. Show feedback when item is added."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a Layout component that wraps pages and includes navigation with the CartIcon component. This provides consistent header/navigation across all pages."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with the Layout component to ensure cart icon and navigation are available on all pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create checkout flow capturing customer name, delivery address, and phone number",
+      "acceptanceCriteria": [
+        "Checkout form collects customer name, delivery address, and contact number",
+        "Form validation ensures all required fields are filled",
+        "Order data is submitted to backend upon checkout completion"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CheckoutForm.tsx",
+          "operation": "create",
+          "description": "Create a CheckoutForm component with form fields for customer name, delivery address, and phone number. Implement form validation for required fields and proper phone number format. On submit, call backend checkout() method with form data and handle success/error responses."
+        },
+        {
+          "path": "frontend/src/pages/CheckoutPage.tsx",
+          "operation": "create",
+          "description": "Create CheckoutPage that displays cart summary and the CheckoutForm component. Show order total and items being purchased. Include navigation back to catalog."
+        },
+        {
+          "path": "frontend/src/pages/OrderSuccessPage.tsx",
+          "operation": "create",
+          "description": "Create OrderSuccessPage to display after successful checkout. Show confirmation message and order summary. Include button to return to catalog for more shopping."
+        },
+        {
+          "path": "frontend/src/components/Cart.tsx",
+          "operation": "modify",
+          "description": "Add a 'Proceed to Checkout' button that navigates to the CheckoutPage when cart has items."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register CheckoutPage and OrderSuccessPage routes in the app router. Ensure proper navigation flow from cart to checkout to success."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Apply a creative, traditional Indian marketplace visual theme with warm, earthy colors and elegant typography that reflects the craftsmanship of Uttarakhandi products",
+      "acceptanceCriteria": [
+        "Color palette uses warm, earthy tones inspired by traditional Indian aesthetics",
+        "Typography is elegant and readable",
+        "Overall design conveys craftsmanship and authenticity",
+        "Theme is applied consistently across all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with a custom color palette featuring warm, earthy tones (terracotta, ochre, deep browns, cream, warm golds) inspired by traditional Indian marketplaces. Define custom color variables for primary, secondary, accent, and background colors."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Apply the custom theme colors as CSS variables and set elegant typography choices (consider serif fonts for headings to convey craftsmanship). Define global styles for consistent spacing, borders, and shadows that reflect traditional Indian aesthetics."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Apply the theme colors and styling to the Layout component header and navigation. Use warm background colors and elegant typography to establish the traditional marketplace aesthetic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Render generated product images for Uttarakhandi willow bats as static assets in frontend/public/assets/generated",
+      "acceptanceCriteria": [
+        "Generated bat images are loaded from frontend/public/assets/generated directory",
+        "Images are displayed in product catalog",
+        "Image paths are correctly referenced in product data"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BatCard.tsx",
+          "operation": "modify",
+          "description": "Update image rendering to load bat product images from frontend/public/assets/generated using the image path stored in backend bat data. The backend provides image filenames (bat-classic.dim_600x600.png, bat-premium.dim_600x600.png, bat-professional.dim_600x600.png) which should be loaded from /assets/generated/ directory. Include alt text for accessibility."
+        },
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "modify",
+          "description": "Update the hero banner section to display the hero-banner.dim_1200x400.png image from frontend/public/assets/generated/hero-banner.dim_1200x400.png. Ensure proper responsive sizing and loading."
+        },
+        {
+          "path": "frontend/src/components/CartIcon.tsx",
+          "operation": "modify",
+          "description": "Update the cart icon to use bat-icon.dim_64x64.png from frontend/public/assets/generated/bat-icon.dim_64x64.png as the cart indicator icon."
+        }
+      ]
+    }
+  ]
+}
